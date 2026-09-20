@@ -76,44 +76,246 @@ html, body {
   min-width: 480px;
 }
 
+:root {
+  --header-height: 64px;
+}
+
+header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  height: var(--header-height) !important;
+  z-index: 1000 !important;
+  background: #0e1b33 !important;
+  color: #fff;
+  padding: 0 5% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-shadow: 0 4px 20px rgba(11, 23, 48, 0.3) !important;
+  box-sizing: border-box !important;
+}
+
+body {
+  padding-top: var(--header-height) !important;
+}
+
+section, [id] {
+  scroll-margin-top: calc(var(--header-height) + 16px) !important;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #172a4b;
+  border: 1px solid #4a6288;
+  border-radius: 9px;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 7px;
+  flex-direction: column;
+  gap: 4px;
+  transition: all .2s ease;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+.mobile-menu-btn:hover, .mobile-menu-btn:active {
+  background: #233b66;
+  border-color: #f5b942;
+}
+.mobile-menu-btn .hamburger-line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.mobile-menu-btn.open .hamburger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.mobile-menu-btn.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-btn.open .hamburger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile Drawer Backdrop */
+.mobile-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 18, 37, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .28s ease, visibility .28s ease;
+}
+.mobile-drawer-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Drawer Panel */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(310px, 86vw);
+  height: 100vh;
+  height: 100dvh;
+  background: #0e1b33;
+  color: #fff;
+  z-index: 2001;
+  box-shadow: -10px 0 40px rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(105%);
+  visibility: hidden;
+  transition: transform .32s cubic-bezier(0.16, 1, 0.3, 1), visibility .32s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 18px 20px;
+  box-sizing: border-box;
+}
+.mobile-drawer.open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.mobile-drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+}
+.mobile-drawer-head .logo {
+  font-size: 13.5px;
+  font-weight: 850;
+  letter-spacing: .25px;
+}
+.mobile-drawer-close {
+  border: 0;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 17px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+.mobile-drawer-close:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.mobile-drawer-auth {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin: 16px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+}
+.mobile-auth-btn {
+  width: 100%;
+  text-align: center;
+  padding: 10px 8px;
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.mobile-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+.mobile-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 13px;
+  border-radius: 11px;
+  color: #dce5f5;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 650;
+  transition: background .18s, color .18s;
+}
+.mobile-nav-item:hover, .mobile-nav-item:active {
+  background: rgba(245, 185, 66, 0.12);
+  color: #f5cf79;
+}
+.mobile-nav-item .m-icon {
+  font-size: 17px;
+  width: 22px;
+  text-align: center;
+}
+.mobile-nav-turan {
+  background: linear-gradient(135deg, rgba(245, 207, 121, 0.14), rgba(16, 35, 67, 0.5));
+  border: 1px solid rgba(245, 207, 121, 0.28);
+  color: #f5cf79;
+}
+.mobile-drawer-footer {
+  padding-top: 14px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255,255,255,0.09);
+}
+.mobile-drawer-hint {
+  font-size: 11px;
+  color: #7b8ea8;
+  line-height: 1.45;
+  text-align: center;
+}
+
 @media(max-width:750px) {
+  :root {
+    --header-height: 56px;
+  }
   header {
-    padding: 10px 4% !important;
+    padding: 0 4% !important;
     gap: 8px !important;
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
   }
   header > .logo {
-    font-size: 15px;
-    letter-spacing: .2px;
+    font-size: 13.5px !important;
+    letter-spacing: .2px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 52vw !important;
   }
   header > div:last-child {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 6px;
-    flex-wrap: nowrap;
-    max-width: 100%;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 4px !important;
+    flex-shrink: 0 !important;
   }
   .lang-wrap {
-    margin-left: 4px !important;
-    gap: 4px !important;
+    margin-left: 0 !important;
+    gap: 3px !important;
   }
   .lang-select {
-    max-width: 110px !important;
+    max-width: 95px !important;
     padding: 5px 6px !important;
     font-size: 11px !important;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .auth-actions {
-    margin-left: 0 !important;
-    gap: 4px !important;
-  }
-  .auth-btn {
-    padding: 6px 8px !important;
-    font-size: 11px !important;
-    white-space: nowrap;
   }
   .developer-footer {
     grid-template-columns: 1fr !important;
@@ -128,22 +330,98 @@ html, body {
   }
 }
 
+h1, h2, h3, h4, p {
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+@media(max-width:550px) {
+  h2 {
+    font-size: 26px !important;
+  }
+  .panel {
+    padding: 16px !important;
+  }
+  .country-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .community-layout, .community-layout > * {
+    min-width: 0 !important;
+  }
+  .map {
+    min-width: 0 !important;
+  }
+  .ülke {
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+}
+
+@media(max-width:360px) {
+  .map {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 @media(max-width:420px) {
-  header {
-    justify-content: center !important;
-  }
   header > .logo {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 2px;
-  }
-  header > div:last-child {
-    width: 100%;
-    justify-content: center;
+    font-size: 12px !important;
+    max-width: 46vw !important;
   }
   .lang-select {
-    max-width: 105px !important;
+    max-width: 86px !important;
+    padding: 4px 4px !important;
+    font-size: 10px !important;
   }
+  .mobile-menu-btn {
+    width: 34px !important;
+    height: 34px !important;
+  }
+}
+
+/* Navigasyon: sığarsa yatay menü, sığmazsa hamburger (dile göre otomatik) */
+header nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+header > .logo {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  min-width: 0;
+}
+header > div:last-child {
+  flex-shrink: 0;
+}
+
+body.nav-collapsed header nav,
+body.nav-collapsed header .auth-actions {
+  display: none !important;
+}
+body.nav-collapsed .mobile-menu-btn {
+  display: inline-flex !important;
+}
+body:not(.nav-collapsed) .mobile-menu-btn {
+  display: none !important;
+}
+body:not(.nav-collapsed) .mobile-drawer,
+body:not(.nav-collapsed) .mobile-drawer-backdrop {
+  display: none !important;
+}
+
+/* Ölçüm modu: menü ekran dışında görünmeden serilir, genişliği okunur */
+body.nav-measuring header nav,
+body.nav-measuring header .auth-actions {
+  display: flex !important;
+  visibility: hidden !important;
+  position: absolute !important;
+  left: -99999px !important;
+  top: 0 !important;
+  pointer-events: none !important;
 }
 
 </style>
@@ -167,7 +445,31 @@ html, body {
 </style>
 </head>
 <body>
-<header><div class="logo">TÜRK DÜNYASI <span>BECERİ AĞI</span></div><div style="display:flex;align-items:center"><nav><a href="#nasil" data-i18n="navHowItWorks">Nasıl Çalışır?</a><a href="#profil" data-i18n="navSampleProfile">Örnek Profil</a><a href="#eslesme" data-i18n="navMatching">Eşleşme</a><a href="#topluluk" data-i18n="navCommunity">Topluluk</a><a href="#makaleler" data-i18n="navArticles">Makaleler</a><a href="#ai" id="navTuranLink" data-i18n="navTuran">Turan AI</a><a href="#harita" data-i18n="navSkillMap">Beceri Haritası</a><a href="#yol" data-i18n="navRoadmap">Yol Haritası</a></nav><div class="auth-actions"><button class="auth-btn" onclick="openAuth('login')" type="button" data-i18n="Giriş Yap">Giriş Yap</button><button class="auth-btn register" onclick="openAuth('register')" type="button" data-i18n="Kayıt Ol">Kayıt Ol</button></div><div class="lang-wrap"><span aria-hidden="true">🌐</span><select aria-label="Dil seçimi" class="lang-select" id="languageSelect"><option value="tr">Türkçe</option><option value="az">Azərbaycanca</option><option value="uz">O‘zbekcha</option><option value="kk">Қазақша</option><option value="tk">Türkmençe</option><option value="ky">Кыргызча</option><option value="en">English</option></select></div></div></header>
+<header><div class="logo">TÜRK DÜNYASI <span>BECERİ AĞI</span></div><div style="display:flex;align-items:center"><nav><a href="#nasil" data-i18n="navHowItWorks">Nasıl Çalışır?</a><a href="#profil" data-i18n="navSampleProfile">Örnek Profil</a><a href="#eslesme" data-i18n="navMatching">Eşleşme</a><a href="#topluluk" data-i18n="navCommunity">Topluluk</a><a href="#makaleler" data-i18n="navArticles">Makaleler</a><a href="#ai" id="navTuranLink" data-i18n="navTuran">Turan AI</a><a href="#harita" data-i18n="navSkillMap">Beceri Haritası</a><a href="#yol" data-i18n="navRoadmap">Yol Haritası</a></nav><div class="auth-actions"><button class="auth-btn" onclick="openAuth('login')" type="button" data-i18n="Giriş Yap">Giriş Yap</button><button class="auth-btn register" onclick="openAuth('register')" type="button" data-i18n="Kayıt Ol">Kayıt Ol</button></div><div class="lang-wrap"><span aria-hidden="true">🌐</span><select aria-label="Dil seçimi" class="lang-select" id="languageSelect"><option value="tr">Türkçe</option><option value="az">Azərbaycanca</option><option value="uz">O‘zbekcha</option><option value="kk">Қазақша</option><option value="tk">Türkmençe</option><option value="ky">Кыргызча</option><option value="en">English</option></select></div><button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Menü" aria-expanded="false" type="button"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button></div></header>
+<div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="closeMobileMenu()"></div>
+<aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobil Menü">
+  <div class="mobile-drawer-head">
+    <div class="logo">TÜRK DÜNYASI <span>BECERİ AĞI</span></div>
+    <button class="mobile-drawer-close" id="mobileDrawerClose" onclick="closeMobileMenu()" aria-label="Kapat" type="button">✕</button>
+  </div>
+  <div class="mobile-drawer-auth">
+    <button class="auth-btn mobile-auth-btn" onclick="closeMobileMenu();openAuth('login')" type="button" data-i18n="Giriş Yap">Giriş Yap</button>
+    <button class="auth-btn register mobile-auth-btn" onclick="closeMobileMenu();openAuth('register')" type="button" data-i18n="Kayıt Ol">Kayıt Ol</button>
+  </div>
+  <nav class="mobile-drawer-nav">
+    <a href="#nasil" class="mobile-nav-item" onclick="closeMobileMenu()"><span class="m-icon">💡</span> <span data-i18n="navHowItWorks">Nasıl Çalışır?</span></a>
+    <a href="#profil" class="mobile-nav-item" onclick="closeMobileMenu()"><span class="m-icon">👤</span> <span data-i18n="navSampleProfile">Örnek Profil</span></a>
+    <a href="#eslesme" class="mobile-nav-item" onclick="closeMobileMenu()"><span class="m-icon">🤝</span> <span data-i18n="navMatching">Eşleşme</span></a>
+    <a href="#topluluk" class="mobile-nav-item" onclick="closeMobileMenu()"><span class="m-icon">🌐</span> <span data-i18n="navCommunity">Topluluk</span></a>
+    <a href="#makaleler" class="mobile-nav-item" onclick="closeMobileMenu()"><span class="m-icon">📝</span> <span data-i18n="navArticles">Makaleler</span></a>
+    <a href="#ai" id="mobileNavTuranLink" class="mobile-nav-item mobile-nav-turan" onclick="closeMobileMenu();window.openTuran();"><span class="m-icon">✨</span> <span data-i18n="navTuran">Turan AI</span></a>
+    <a href="#harita" class="mobile-nav-item" onclick="closeMobileMenu()"><span class="m-icon">🗺️</span> <span data-i18n="navSkillMap">Beceri Haritası</span></a>
+    <a href="#yol" class="mobile-nav-item" onclick="closeMobileMenu()"><span class="m-icon">🚀</span> <span data-i18n="navRoadmap">Yol Haritası</span></a>
+  </nav>
+  <div class="mobile-drawer-footer">
+    <div class="mobile-drawer-hint" data-i18n="footerNote">Öğrenciler arası güvenli ve adil beceri takası.</div>
+  </div>
+</aside>
 <div class="hero">
 <div class="eyebrow" style="color:#f5cf79">Öğrenciler • Beceriler • Sınır ötesi öğrenme</div>
 <h1>Bildiğini paylaş.<br/>Öğrenmek istediğini öğren.</h1>
@@ -400,8 +702,67 @@ function openAuth(mode){
   b.classList.add('open'); b.setAttribute('aria-hidden','false');
 }
 function closeAuth(){const b=document.getElementById('authBackdrop');if(b){b.classList.remove('open');b.setAttribute('aria-hidden','true');}}
+function toggleMobileMenu(){
+  const d=document.getElementById('mobileDrawer');
+  if(!d)return;
+  if(d.classList.contains('open'))closeMobileMenu();
+  else openMobileMenu();
+}
+function openMobileMenu(){
+  const d=document.getElementById('mobileDrawer');
+  const b=document.getElementById('mobileDrawerBackdrop');
+  const btn=document.getElementById('mobileMenuBtn');
+  if(d)d.classList.add('open');
+  if(b)b.classList.add('open');
+  if(btn){btn.classList.add('open');btn.setAttribute('aria-expanded','true');}
+  document.body.style.overflowY='hidden';
+}
+function closeMobileMenu(){
+  const d=document.getElementById('mobileDrawer');
+  const b=document.getElementById('mobileDrawerBackdrop');
+  const btn=document.getElementById('mobileMenuBtn');
+  if(d)d.classList.remove('open');
+  if(b)b.classList.remove('open');
+  if(btn){btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  document.body.style.overflowY='';
+}
+/* Başlık menüsü: içerik satıra sığmıyorsa hamburgere geç (7 dilin tamamı için) */
+(function(){
+  const header=document.querySelector('header');
+  if(!header)return;
+  const logo=header.querySelector('.logo');
+  const nav=header.querySelector('nav');
+  const auth=header.querySelector('.auth-actions');
+  const lang=header.querySelector('.lang-wrap');
+  const BREATHING=56;
+  function requiredWidth(){
+    document.body.classList.add('nav-measuring');
+    const w=(logo?logo.scrollWidth:0)+(nav?nav.scrollWidth:0)+(auth?auth.scrollWidth:0)+(lang?lang.scrollWidth:0);
+    document.body.classList.remove('nav-measuring');
+    const cs=getComputedStyle(header);
+    return w+parseFloat(cs.paddingLeft||0)+parseFloat(cs.paddingRight||0)+BREATHING;
+  }
+  let raf=null;
+  function syncHeaderMode(){
+    const fits=requiredWidth()<=header.clientWidth;
+    const wasCollapsed=document.body.classList.contains('nav-collapsed');
+    document.body.classList.toggle('nav-collapsed',!fits);
+    if(fits&&wasCollapsed)closeMobileMenu();
+  }
+  window.syncHeaderMode=syncHeaderMode;
+  function schedule(){if(raf)cancelAnimationFrame(raf);raf=requestAnimationFrame(syncHeaderMode);}
+  syncHeaderMode();
+  window.addEventListener('resize',schedule);
+  window.addEventListener('orientationchange',schedule);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(schedule);
+  document.addEventListener('DOMContentLoaded',schedule);
+  // dil değişince menü genişliği değişir -> yeniden ölç
+  const sel=document.getElementById('languageSelect');
+  if(sel)sel.addEventListener('change',()=>setTimeout(syncHeaderMode,60));
+  setTimeout(()=>{if(window.TDAI18n&&window.TDAI18n.onChange)window.TDAI18n.onChange(()=>setTimeout(syncHeaderMode,0));},0);
+})();
 document.addEventListener('click',e=>{if(e.target===document.getElementById('authBackdrop'))closeAuth();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAuth();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAuth();closeMobileMenu();}});
 (function(){
 
 // =========================================================
