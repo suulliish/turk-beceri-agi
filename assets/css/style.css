@@ -21,7 +21,7 @@
   --line:#e4e7ec;
   --line-strong:#cfd4dd;
   --muted:#6a7180;
-  --muted-2:#98a0ae;
+  --muted-2:#5f6673;
   --header-height:72px;
   --gutter:40px;
   --maxw:1240px;
@@ -1066,8 +1066,8 @@ body.scrolled header{height:60px;background:rgba(255,255,255,.94)}
    ========================================================================== */
 .closing{padding-bottom:140px}
 .statement{
-  font-size:clamp(24px,3vw,42px);font-weight:300;letter-spacing:-.032em;line-height:1.16;
-  color:var(--muted-2);max-width:22ch;margin:0 0 56px;text-wrap:balance;
+  font-size:clamp(25px,3.1vw,44px);font-weight:300;letter-spacing:-.032em;line-height:1.16;
+  color:#6a7180;max-width:24ch;margin:0 0 56px;text-wrap:balance;
 }
 .statement em{font-style:normal;color:var(--ink)}
 .lead em{font-style:normal;color:var(--ink);font-weight:500}
@@ -1131,3 +1131,174 @@ body.scrolled header{height:60px;background:rgba(255,255,255,.94)}
 .match-name{display:flex;align-items:center;gap:9px}
 .match-name .mini-flag{width:20px;height:13px;margin:0;flex-shrink:0}
 @media(max-width:900px){.hero-flags{position:static;margin-top:26px;justify-content:flex-start}}
+
+/* ==========================================================================
+   Okunabilirlik ve hiyerarşi düzeltmeleri
+   ========================================================================== */
+
+/* 1. bölüm girişleri: tek tip gri blok yerine net kademe */
+.sec-body > p.muted:first-of-type,
+.sec-body > h2 + p.muted,
+.lead{
+  font-size:clamp(16.5px,1.35vw,19px);
+  line-height:1.55;
+  color:#2b3242;
+  max-width:58ch;
+  margin-bottom:0;
+}
+.sec-body > p.muted:first-of-type + p.muted{margin-top:14px;font-size:15px;color:var(--muted);max-width:62ch}
+section > .sec-body > h2{margin-bottom:22px}
+
+/* 2. kart metinleri daha kısa satır, daha net başlık */
+.card h3{font-size:17.5px;font-weight:550;margin-bottom:12px}
+.card p{font-size:14px;color:var(--muted);max-width:40ch}
+.card{padding-top:26px}
+
+/* 3. kutu blokları: kutu görünümü yerine ince çizgili kayıt satırı */
+.grid2{gap:0 44px}
+.kutu{
+  border:0;border-top:1px solid var(--line);border-radius:0;
+  padding:24px 0 26px;margin-top:0;background:transparent;
+}
+.kutu h3{font-size:16.5px;font-weight:550;margin-bottom:10px}
+.kutu p{font-size:14px;color:var(--muted);max-width:44ch}
+.kutu .etiket{margin-top:4px}
+
+/* 4. tablo başlıkları ve küçük etiketler okunur tonda */
+.table th,.form-field label,.donation-field label,.eyebrow,.mobile-nav-item .m-icon,
+.match-reason,.article-byline,.turan-disclaimer,.skill-hint{color:var(--muted-2)}
+
+/* 5. metin ölçüsü: hiçbir paragraf aşırı uzamasın */
+p,.muted,.notice,.harita-notu,.daily-note,.feature-note,.media-note p{max-width:68ch}
+.hero p{max-width:52ch}
+
+/* 6. bölümler arası ritim: her bölüm aynı boşlukla akmasın */
+section{padding-top:clamp(72px,8vw,116px);padding-bottom:clamp(72px,8vw,116px)}
+.feature-section{padding-top:clamp(64px,7vw,104px)}
+.demo{padding-top:clamp(80px,9vw,128px);padding-bottom:clamp(80px,9vw,128px)}
+
+/* ==========================================================================
+   Mobil düzeltmeler: boş görsel bloklar, üst üste binen kart, sıkışan ızgara
+   ========================================================================== */
+@media(max-width:900px){
+  /* dev boş gradyan blokları yerine kompakt görsel şerit */
+  .media-pair{
+    display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:34px;
+  }
+  .media-lg,.media-sm{height:132px;margin:0;border-radius:14px}
+  .media-tall{height:200px}
+
+  /* beyaz kart artık panelin metnini örtmüyor */
+  .figure-block{gap:0}
+  .figure-card{margin:18px 0 0;box-shadow:0 14px 34px rgba(7,11,22,.10)}
+  .figure-panel{min-height:0;padding:28px 24px 30px}
+  .figure-note{margin-top:18px}
+
+  /* plakalar tam yükseklik almasın */
+  .tile{min-height:152px;padding:22px 20px}
+  .tile b{font-size:34px}
+}
+@media(max-width:600px){
+  .media-lg,.media-sm{height:110px}
+  .art-caption{left:16px;right:16px;bottom:14px;font-size:12px}
+  .art-caption b{font-size:24px}
+  /* uzun başlıklar taşmasın */
+  h1{font-size:clamp(32px,9vw,46px)}
+  h2{font-size:clamp(25px,6.4vw,34px)}
+  .statement{font-size:clamp(22px,6vw,30px);max-width:none}
+  .figure-value{font-size:clamp(46px,14vw,68px)}
+  .stat-cell b{font-size:clamp(38px,12vw,54px)}
+}
+
+/* ==========================================================================
+   Ritim: bölüm zeminleri, kart işaretleri, not blokları
+   ========================================================================== */
+
+/* 1. kart ve kayıt satırlarına ince mavi işaret (eski emoji ikonların yerine) */
+.card::after,.kutu::after{
+  content:"";position:absolute;top:0;left:0;width:20px;height:1px;background:var(--blue);
+}
+.card,.kutu{position:relative}
+.card{padding-top:28px}
+.kutu{padding-top:26px}
+
+/* 2. topluluk bölümü gri zeminde: sayfa tek düze akmasın */
+.feature-section#topluluk{position:relative;background:transparent}
+.feature-section#topluluk::before{
+  content:"";position:absolute;left:50%;transform:translateX(-50%);width:100vw;top:0;bottom:0;
+  background:var(--paper-2);z-index:-1;
+}
+
+/* 3. not blokları: etiketli, gövde metninden ayrı okunur */
+.notice,.harita-notu,.daily-note{
+  border-left:0;padding:16px 18px;border-radius:10px;background:var(--paper-2);
+  font-size:13px;color:var(--muted);max-width:60ch;
+}
+.feature-section#topluluk .notice,
+.feature-section#topluluk .harita-notu,
+.demo .notice{background:var(--paper);border:1px solid var(--line)}
+.daily-note strong,.notice strong,.harita-notu strong{
+  display:block;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.13em;
+  color:var(--muted-2);margin-bottom:6px;
+}
+.uyari{
+  border-left:0;background:#f5f8ff;border:1px solid var(--blue-pale);border-radius:10px;
+  padding:16px 18px;color:var(--ink);max-width:66ch;
+}
+.uyari strong{color:var(--blue-deep)}
+
+/* 4. panel içi başlıklar: aynı boyda blok yığını olmasın */
+.panel h3{font-size:16px;font-weight:600;letter-spacing:.01em;margin-bottom:14px}
+.panel h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.13em;color:var(--muted-2);margin:20px 0 10px}
+.panel p{font-size:14px}
+
+/* 5. zaman çizelgesi metni: başlık mavi, gövde gri, ölçü kısa */
+.timeline > div{font-size:14.5px;color:var(--muted)}
+.timeline span{display:block;max-width:56ch}
+
+/* 6. ekip bölümü: tek satırlık isim bloğu yerine kademe */
+.team-card{padding:30px 0}
+.team-card strong{font-size:clamp(24px,2.6vw,34px)}
+.team-role{font-size:13.5px;color:var(--muted-2)}
+
+/* ==========================================================================
+   Form düzeltmeleri: etiket + alan her yerde aynı davransın
+   ========================================================================== */
+.feature-form > label,
+.feature-toolbar > label,
+.modal label:not(.skill-option):not(.file-upload){
+  display:flex;flex-direction:column;gap:8px;min-width:0;
+}
+.feature-form > label > span,
+.modal label:not(.skill-option):not(.file-upload) > span{
+  font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.13em;color:var(--muted-2);
+}
+.feature-form input,.feature-form select,.feature-form textarea{
+  width:100%;font:inherit;font-size:14px;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line-strong);border-radius:7px;padding:11px 12px;
+}
+.feature-form textarea{min-height:150px;resize:vertical}
+.feature-form input:focus,.feature-form select:focus,.feature-form textarea:focus{
+  outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(35,72,255,.12);
+}
+.feature-form{gap:20px}
+.feature-form .form-actions{margin-top:4px}
+
+/* şeritteki cam nesne kelimenin ortasına oturmasın */
+.marquee-glass{right:4%}
+
+/* ==========================================================================
+   Son okunabilirlik rötuşları
+   ========================================================================== */
+/* görsel üstündeki yazı için koyu perde: gradyan yüklenmese de okunur kalır */
+.art-caption{
+  padding:44px 20px 18px;left:0;right:0;bottom:0;
+  background:linear-gradient(transparent,rgba(5,10,28,.72));
+  border-radius:0 0 20px 20px;
+}
+.art-caption b{margin-bottom:4px}
+
+/* notlar AA eşiğinin üstünde */
+.notice,.harita-notu,.daily-note,.certificate-note,.feature-note,.form-note,.skill-hint,.limit-box,.art-caption span{color:#5f6673}
+.art-caption span{color:rgba(255,255,255,.92)}
+.daily-note,.harita-notu,.notice{color:#5b6270}
