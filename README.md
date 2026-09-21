@@ -18,14 +18,16 @@ turk-beceri-agi/
 │   │   ├── 03-forms.css          # dil seçici, giriş/kayıt modalı, form alanları, ekip, sertifika, beceri seçici
 │   │   ├── 04-assistant.css      # Turan yapay zekâ paneli
 │   │   ├── 05-responsive.css     # mobil düzeltmeler, sabit başlık, çekmece, medya sorguları
-│   │   └── 06-features.css       # prototip özellik bölümleri: eşleşme, topluluk, makaleler
+│   │   ├── 06-features.css       # prototip özellik bölümleri: eşleşme, topluluk, makaleler
+│   │   └── 07-tabs.css           # sekme çubuğu, paneller, hızlı erişim kartları
 │   ├── js/                       # sıra önemlidir, hepsi `defer` ile yüklenir
 │   │   ├── 01-ui-shell.js        # odak tuzağı, modal ve çekmece kontrolü, oturum durumu, başlık genişlik ölçümü
 │   │   ├── 02-i18n-data.js       # 7 dilin sözlükleri (yalnızca veri, window.TDA_I18N_DATA)
 │   │   ├── 03-app.js             # i18n motoru, beceri kataloğu, prototip işlevleri
 │   │   ├── 04-assistant.js       # Turan paneli: sohbet ve metin dedektörü
 │   │   ├── 05-ui-motion.js       # aktif bölüm vurgusu, yukarı düğmesi, tablo kaydırma ipucu
-│   │   └── 06-rooms.js           # ülke topluluk odaları (prototip sohbet gösterimi)
+│   │   ├── 06-rooms.js           # ülke topluluk odaları (prototip sohbet gösterimi)
+│   │   └── 07-tabs.js            # sekme kabuğu: bölümleri yedi panele dağıtır
 │   ├── flags/                    # 7 ülkenin yerel SVG bayrağı
 │   ├── favicon.svg / apple-touch-icon.png
 │   └── og-image.jpg              # paylaşım görseli (1200×630)
@@ -33,6 +35,10 @@ turk-beceri-agi/
 ```
 
 CSS ve JS dosyaları numara sırasıyla yüklenir; sıra değişirse basamak (cascade) ve bağımlılıklar bozulur. `02-i18n-data.js` sözlükleri `window.TDA_I18N_DATA` üzerinden `03-app.js` içindeki motora verir.
+
+## Gezinme
+
+Sayfa yedi sekmeye ayrılır: **Ana Sayfa**, **Öğrenci Yolculuğu**, **Akıllı Eşleştirme**, **Topluluk**, **Makaleler**, **Öğrenci Profilim**, **Turan AI**. Bölümler markup içinde tek bir akış olarak durur; `07-tabs.js` bunları çalışma anında panellere taşır. Böylece `#eslesme`, `#makaleler` gibi eski çapa bağlantıları çalışmaya devam eder: bağlantı önce doğru sekmeyi açar, sonra bölüme kaydırır. Adres çubuğundaki `#matching` gibi bir sekme adı doğrudan o sekmeyi açar.
 
 ## Özellikler
 
