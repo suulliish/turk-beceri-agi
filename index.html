@@ -34,11 +34,11 @@
 </head>
 <body>
 <a class="skip-link" href="#main" data-i18n="skipToContent">İçeriğe geç</a>
-<header><div class="logo">TÜRK DÜNYASI <span>BECERİ AĞI</span></div><div style="display:flex;align-items:center"><nav><a href="#nasil" data-i18n="navHowItWorks">Nasıl Çalışır?</a><a href="#profil" data-i18n="navSampleProfile">Örnek Profil</a><a href="#eslesme" data-i18n="navMatching">Eşleşme</a><a href="#topluluk" data-i18n="navCommunity">Topluluk</a><a href="#makaleler" data-i18n="navArticles">Makaleler</a><a href="#ai" id="navTuranLink" data-i18n="navTuran">Turan AI</a><a href="#harita" data-i18n="navSkillMap">Beceri Haritası</a><a href="#yol" data-i18n="navRoadmap">Yol Haritası</a></nav><div class="auth-actions"><button class="auth-btn" onclick="openAuth('login')" type="button" data-i18n="Giriş Yap">Giriş Yap</button><button class="auth-btn register" onclick="openAuth('register')" type="button" data-i18n="Kayıt Ol">Kayıt Ol</button></div><div class="lang-wrap"><span aria-hidden="true">🌐</span><select aria-label="Dil seçimi" class="lang-select" id="languageSelect"><option value="tr">Türkçe</option><option value="az">Azərbaycanca</option><option value="uz">O‘zbekcha</option><option value="kk">Қазақша</option><option value="tk">Türkmençe</option><option value="ky">Кыргызча</option><option value="en">English</option></select></div><button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Menü" aria-expanded="false" type="button"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button></div></header>
+<header><div class="logo"><span data-i18n="logoLead">TÜRK DÜNYASI</span> <span data-i18n="logoTail">BECERİ AĞI</span></div><div style="display:flex;align-items:center"><nav><a href="#nasil" data-i18n="navHowItWorks">Nasıl Çalışır?</a><a href="#profil" data-i18n="navSampleProfile">Örnek Profil</a><a href="#eslesme" data-i18n="navMatching">Eşleşme</a><a href="#topluluk" data-i18n="navCommunity">Topluluk</a><a href="#makaleler" data-i18n="navArticles">Makaleler</a><a href="#ai" id="navTuranLink" data-i18n="navTuran">Turan AI</a><a href="#harita" data-i18n="navSkillMap">Beceri Haritası</a><a href="#yol" data-i18n="navRoadmap">Yol Haritası</a></nav><div class="auth-actions"><button class="auth-btn" onclick="openAuth('login')" type="button" data-i18n="Giriş Yap">Giriş Yap</button><button class="auth-btn register" onclick="openAuth('register')" type="button" data-i18n="Kayıt Ol">Kayıt Ol</button></div><div class="lang-wrap"><span aria-hidden="true">🌐</span><select aria-label="Dil seçimi" class="lang-select" id="languageSelect"><option value="tr">Türkçe</option><option value="az">Azərbaycanca</option><option value="uz">O‘zbekcha</option><option value="kk">Қазақша</option><option value="tk">Türkmençe</option><option value="ky">Кыргызча</option><option value="en">English</option></select></div><button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Menü" aria-expanded="false" type="button"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button></div></header>
 <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="closeMobileMenu()" aria-hidden="true"></div>
 <aside aria-hidden="true" class="mobile-drawer" id="mobileDrawer" aria-label="Mobil Menü">
   <div class="mobile-drawer-head">
-    <div class="logo">TÜRK DÜNYASI <span>BECERİ AĞI</span></div>
+    <div class="logo"><span data-i18n="logoLead">TÜRK DÜNYASI</span> <span data-i18n="logoTail">BECERİ AĞI</span></div>
     <button class="mobile-drawer-close" id="mobileDrawerClose" onclick="closeMobileMenu()" aria-label="Kapat" type="button">✕</button>
   </div>
   <div class="mobile-drawer-auth">
@@ -117,6 +117,7 @@
 <h2 data-i18n="matchTitle">İhtiyacına göre öğrenci bul</h2>
 <p class="muted" data-i18n="matchIntro">Filtreleri kullanabilir veya otomatik eşleştirmeyi açabilirsin. Skor; beceri uyumu, dil, ülke, seviye ve uygunluk sinyallerinden hesaplanır.</p>
 <div class="feature-toolbar">
+<div class="form-field search-field"><label data-i18n="searchLabel" for="matchSearch">Arama motoru / kelime ile ara</label><input autocomplete="off" data-i18n-placeholder="searchPlaceholder" id="matchSearch" placeholder="Beceri, dil, ülke veya öğrenci adı ara…" type="search"/></div>
 <div class="form-field"><label data-i18n="teachSkill" for="matchTeach">Öğretmek istediği beceri</label><select id="matchTeach"><option data-i18n="anyOption" value="">Farketmez</option></select></div>
 <div class="form-field"><label data-i18n="learnSkill" for="matchLearn">Öğrenmek istediği beceri</label><select id="matchLearn"><option data-i18n="anyOption" value="">Farketmez</option></select></div>
 <div class="form-field"><label data-i18n="countryFilter" for="matchCountry">Ülke</label><select id="matchCountry"><option data-i18n="allCountries" value="">Tüm ülkeler</option></select></div>
@@ -138,6 +139,15 @@
 <div class="eyebrow" data-i18n="communityEyebrow">Ülke toplulukları</div>
 <h2 data-i18n="communityTitle">Destek iste, puanla dayanış</h2>
 <p class="muted" data-i18n="communityIntro">Bu alan serbest sohbet forumu değildir. Sıfır puanlı kullanıcılar yapılandırılmış destek talebi oluşturabilir; diğer kullanıcılar puan bağışlayabilir.</p>
+<div class="community-rooms-grid" aria-label="Topluluk odaları">
+<article class="community-room-card" data-room="Türkiye"><h3>Türkiye <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
+<article class="community-room-card" data-room="Azerbaycan"><h3>Azerbaycan <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
+<article class="community-room-card" data-room="Kazakistan"><h3>Kazakistan <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
+<article class="community-room-card" data-room="Özbekistan"><h3>Özbekistan <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
+<article class="community-room-card" data-room="Kırgızistan"><h3>Kırgızistan <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
+<article class="community-room-card" data-room="Türkmenistan"><h3>Türkmenistan <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
+<article class="community-room-card" data-room="Kuzey Kıbrıs Türk Cumhuriyeti"><h3>KKTC <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
+</div>
 <div class="community-layout">
 <div class="panel"><h3 data-i18n="countriesTitle">Ülke toplulukları</h3><div class="country-grid" id="countryCommunities"></div></div>
 <div class="panel">
@@ -288,6 +298,18 @@
 <div class="turan-pane" id="turanDetectorPane"><div class="turan-detector"><strong data-i18n="detectorTitle">Yapay zekâ dedektörü</strong><p class="muted" data-i18n="detectorIntro" style="font-size:11px;line-height:1.45">Metnini buraya ekle.</p><textarea data-i18n-placeholder="detectorPlaceholder" id="turanDetectorText" placeholder="Metnini buraya yapıştır…"></textarea><div class="turan-detector-actions"><button class="turan-check" data-i18n="detectorCheck" id="turanDetectorRun" type="button">Metni analiz et</button><button class="turan-detector-clear" data-i18n="detectorClear" id="turanDetectorClear" type="button">Temizle</button></div><div class="turan-result" id="turanDetectorResult" style="display:none"></div><div class="turan-disclaimer" data-i18n="detectorDisclaimer">Sonuç yalnızca dilsel örüntü analizidir.</div></div></div>
 </div>
 <button aria-expanded="false" aria-label="Turan yapay zekâ asistanını aç" class="turan-fab" id="turanFab" type="button" data-i18n-aria="turanFabAria"><span class="turan-orb"><span class="turan-star">✦</span><span class="turan-halo"></span></span><span class="turan-label" data-i18n="turanName">Turan</span></button>
+<div aria-hidden="true" aria-modal="true" class="community-modal-backdrop" id="communityModal" role="dialog">
+<div class="community-modal">
+<div class="community-modal-head"><h2 id="communityModalTitle">Sohbet Odası</h2><button aria-label="Kapat" class="community-modal-close" data-i18n-aria="close" id="communityModalClose" type="button">×</button></div>
+<div class="community-chat" id="communityChat"><div class="community-message" data-i18n="roomIntro">Bu odada hazır mesajlardan birini seçerek topluluğa katılabilirsin.</div></div>
+<div class="community-ready-messages">
+<button class="community-ready-message" data-i18n="roomMsg1" type="button">Puanım bitti. Bana destek olur musunuz?</button>
+<button class="community-ready-message" data-i18n="roomMsg2" type="button">Herkese selamlar! Pratik yapmak isteyen var mı?</button>
+<button class="community-ready-message" data-i18n="roomMsg3" type="button">Yeni bir beceri ekledim, profilime bakabilirsiniz!</button>
+</div>
+<p class="form-note" data-i18n="roomNote">Bu oda prototip gösterimidir; mesajlar yalnızca bu tarayıcıda görünür ve kaydedilmez.</p>
+</div>
+</div>
 <footer>
 <div class="developer-footer">
 <div>
@@ -331,4 +353,5 @@
 <script defer src="assets/js/03-app.js"></script>
 <script defer src="assets/js/04-assistant.js"></script>
 <script defer src="assets/js/05-ui-motion.js"></script>
+<script defer src="assets/js/06-rooms.js"></script>
 </body></html>
