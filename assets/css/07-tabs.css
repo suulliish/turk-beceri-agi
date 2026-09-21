@@ -1,0 +1,71 @@
+/* Türk Dünyası Beceri Ağı — sekme kabuğu: bölüm çubuğu, paneller, hızlı erişim */
+
+.tab-bar{
+  position:fixed;top:var(--header-height,64px);left:0;right:0;z-index:9;
+  background:#0b1830;border-bottom:1px solid #1d3055;
+  padding:0 5%;
+}
+/* sabit başlık + sabit sekme çubuğu kadar yer bırakılır */
+body.tabs-on{padding-top:calc(var(--header-height,64px) + var(--tabbar-height,46px)) !important}
+body.tabs-on section,body.tabs-on [id]{scroll-margin-top:calc(var(--header-height,64px) + var(--tabbar-height,46px) + 16px) !important}
+.tab-nav{
+  display:flex;align-items:stretch;gap:2px;max-width:1220px;margin:0 auto;
+  overflow-x:auto;overflow-y:hidden;scrollbar-width:none;
+}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-button{
+  flex:0 0 auto;border:0;background:transparent;color:#b9c8e4;
+  border-bottom:2px solid transparent;padding:13px 14px;cursor:pointer;
+  font:inherit;font-size:13px;font-weight:700;white-space:nowrap;
+  transition:color .16s ease,border-color .16s ease,background .16s ease;
+}
+.tab-button:hover{color:#fff;background:#13284a}
+.tab-button:focus-visible{outline:2px solid #f5cf79;outline-offset:-2px}
+.tab-button.active{color:#f5cf79;border-bottom-color:#f5cf79}
+
+#tabApp{min-height:48vh}
+.tab-panel{display:none;min-height:48vh}
+.tab-panel.active{display:block;animation:tabReveal .18s ease-out}
+@keyframes tabReveal{from{opacity:.55;transform:translateY(4px)}to{opacity:1;transform:none}}
+.tab-panel > .hero{margin:0}
+.tab-panel > .section-stack > section:first-child{padding-top:52px}
+
+.quick-access{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  max-width:1220px;margin:auto;padding:26px 6% 0;
+}
+.quick-access button{
+  border:1px solid #dfe5ee;border-radius:14px;background:#fff;color:#172033;
+  text-align:left;padding:16px;cursor:pointer;box-shadow:0 5px 18px #18233b0b;
+  font:inherit;font-weight:800;line-height:1.3;
+  transition:border-color .16s ease,box-shadow .16s ease,transform .16s ease;
+}
+.quick-access button:hover{border-color:#8a5f00;transform:translateY(-1px);box-shadow:0 10px 24px #18233b14}
+.quick-access button:focus-visible{outline:2px solid #8a5f00;outline-offset:2px}
+.quick-access small{display:block;color:#5f6673;font-size:11.5px;font-weight:500;margin-top:5px}
+
+/* Turan kendi sekmesinde gömülü çalışır */
+.turan-panel.embedded{
+  position:static;width:auto;max-width:1220px;margin:26px auto 0;
+  max-height:none;display:none;border-radius:18px;box-shadow:0 12px 34px #10234318;
+}
+.tab-panel.active .turan-panel.embedded{display:block}
+.turan-panel.embedded .turan-close{display:none}
+.turan-panel.embedded .turan-chat{height:340px}
+.tab-panel .turan-fab{display:none}
+
+@media(max-width:900px){
+  .tab-bar{padding:0 4%}
+  .tab-button{font-size:12.5px;padding:12px 11px}
+  .quick-access{grid-template-columns:1fr;padding:20px 5% 0}
+}
+@media(max-width:750px){
+  .turan-panel.embedded .turan-chat{height:260px}
+}
+
+/* Sekme çubuğu ana gezinme olduğu için başlıktaki çapa menüsü gizlenir;
+   çekmece (hamburger) bölüm bazlı derin bağlantılar için her ekranda kalır. */
+body.tabs-on header nav{display:none !important}
+body.tabs-on .mobile-menu-btn{display:inline-flex !important}
+body.tabs-on .mobile-drawer{display:flex !important}
+body.tabs-on .mobile-drawer-backdrop{display:block !important}
