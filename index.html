@@ -23,13 +23,13 @@
 <link rel="canonical" href="https://suulliish.github.io/turk-beceri-agi/"/>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png"/>
-<link rel="stylesheet" href="assets/css/01-base.css?v=20260921"/>
-<link rel="stylesheet" href="assets/css/02-components.css?v=20260921"/>
-<link rel="stylesheet" href="assets/css/03-forms.css?v=20260921"/>
-<link rel="stylesheet" href="assets/css/04-assistant.css?v=20260921"/>
-<link rel="stylesheet" href="assets/css/05-responsive.css?v=20260921"/>
-<link rel="stylesheet" href="assets/css/06-features.css?v=20260921"/>
-<link rel="stylesheet" href="assets/css/07-tabs.css?v=20260921"/>
+<link rel="stylesheet" href="assets/css/01-base.css?v=e8c8f48ba8"/>
+<link rel="stylesheet" href="assets/css/02-components.css?v=e8c8f48ba8"/>
+<link rel="stylesheet" href="assets/css/03-forms.css?v=e8c8f48ba8"/>
+<link rel="stylesheet" href="assets/css/04-assistant.css?v=e8c8f48ba8"/>
+<link rel="stylesheet" href="assets/css/05-responsive.css?v=e8c8f48ba8"/>
+<link rel="stylesheet" href="assets/css/06-features.css?v=e8c8f48ba8"/>
+<link rel="stylesheet" href="assets/css/07-tabs.css?v=e8c8f48ba8"/>
 
 
 </head>
@@ -140,14 +140,14 @@
 <div class="eyebrow" data-i18n="communityEyebrow">Ülke toplulukları</div>
 <h2 data-i18n="communityTitle">Destek iste, puanla dayanış</h2>
 <p class="muted" data-i18n="communityIntro">Bu alan serbest sohbet forumu değildir. Sıfır puanlı kullanıcılar yapılandırılmış destek talebi oluşturabilir; diğer kullanıcılar puan bağışlayabilir.</p>
-<div class="community-rooms-grid" aria-label="Topluluk odaları">
+<div class="community-rooms-grid" aria-label="Topluluk odaları" data-i18n-aria="roomsAria">
 <article class="community-room-card" data-room="Türkiye"><h3>Türkiye <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
 <article class="community-room-card" data-room="Azerbaycan"><h3>Azerbaycan <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
 <article class="community-room-card" data-room="Kazakistan"><h3>Kazakistan <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
 <article class="community-room-card" data-room="Özbekistan"><h3>Özbekistan <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
 <article class="community-room-card" data-room="Kırgızistan"><h3>Kırgızistan <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
 <article class="community-room-card" data-room="Türkmenistan"><h3>Türkmenistan <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
-<article class="community-room-card" data-room="Kuzey Kıbrıs Türk Cumhuriyeti"><h3>KKTC <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
+<article class="community-room-card" data-room="Kuzey Kıbrıs Türk Cumhuriyeti"><h3>Kuzey Kıbrıs Türk Cumhuriyeti <span data-i18n="roomSuffix">Topluluk Odası</span></h3><p data-i18n="roomDesc">Beceri paylaşımı, dil pratiği ve ülke içi dayanışma.</p></article>
 </div>
 <div class="community-layout">
 <div class="panel"><h3 data-i18n="countriesTitle">Ülke toplulukları</h3><div class="country-grid" id="countryCommunities"></div></div>
@@ -301,7 +301,7 @@
 <button aria-expanded="false" aria-label="Turan yapay zekâ asistanını aç" class="turan-fab" id="turanFab" type="button" data-i18n-aria="turanFabAria"><span class="turan-orb"><span class="turan-star">✦</span><span class="turan-halo"></span></span><span class="turan-label" data-i18n="turanName">Turan</span></button>
 <div aria-hidden="true" aria-modal="true" class="community-modal-backdrop" id="communityModal" role="dialog">
 <div class="community-modal">
-<div class="community-modal-head"><h2 id="communityModalTitle">Sohbet Odası</h2><button aria-label="Kapat" class="community-modal-close" data-i18n-aria="close" id="communityModalClose" type="button">×</button></div>
+<div class="community-modal-head"><h2 id="communityModalTitle" data-i18n="roomChatTitle">Sohbet Odası</h2><button aria-label="Kapat" class="community-modal-close" data-i18n-aria="close" id="communityModalClose" type="button">×</button></div>
 <div class="community-chat" id="communityChat"><div class="community-message" data-i18n="roomIntro">Bu odada hazır mesajlardan birini seçerek topluluğa katılabilirsin.</div></div>
 <div class="community-ready-messages">
 <button class="community-ready-message" data-i18n="roomMsg1" type="button">Puanım bitti. Bana destek olur musunuz?</button>
@@ -349,11 +349,11 @@
 </div>
 </div>
 <button aria-label="Yukarı çık" class="back-to-top-btn" data-i18n-aria="backToTop" id="backToTopBtn" type="button">↑</button>
-<script defer src="assets/js/01-ui-shell.js?v=20260921"></script>
-<script defer src="assets/js/02-i18n-data.js?v=20260921"></script>
-<script defer src="assets/js/03-app.js?v=20260921"></script>
-<script defer src="assets/js/04-assistant.js?v=20260921"></script>
-<script defer src="assets/js/05-ui-motion.js?v=20260921"></script>
-<script defer src="assets/js/06-rooms.js?v=20260921"></script>
-<script defer src="assets/js/07-tabs.js?v=20260921"></script>
+<script defer src="assets/js/01-ui-shell.js?v=e8c8f48ba8"></script>
+<script defer src="assets/js/02-i18n-data.js?v=e8c8f48ba8"></script>
+<script defer src="assets/js/03-app.js?v=e8c8f48ba8"></script>
+<script defer src="assets/js/04-assistant.js?v=e8c8f48ba8"></script>
+<script defer src="assets/js/05-ui-motion.js?v=e8c8f48ba8"></script>
+<script defer src="assets/js/06-rooms.js?v=e8c8f48ba8"></script>
+<script defer src="assets/js/07-tabs.js?v=e8c8f48ba8"></script>
 </body></html>
