@@ -127,6 +127,8 @@ Varlık bağlantılarına sürüm etiketi eklendi (`?v=20260921`); GitHub Pages 
 - **Ülke topluluk odaları.** Yedi ülke kartı; kart açılınca hazır mesajlarla örnek sohbet penceresi geliyor. Kartlar klavyeyle açılıyor, pencere odağı içeride tutuyor, Escape ile kapanıyor ve mesajların saklanmadığı açıkça yazıyor.
 - **Örnek değerlendirme.** Kendi değerlendirmesi olmayan ziyaretçi boş bir bölüm görmüyor; örnek bir Python ↔ İngilizce takası görünüyor, kullanıcı kendi yorumunu bırakınca örnek kayboluyor.
 - **Çevrilen logo.** Kazakçada "ТҮРКІ ӘЛЕМІ ҚАБІЛЕТТЕР ЖЕЛІСІ", İngilizcede "TURKIC WORLD SKILL NETWORK".
+- **Öğrenci yolculuğu zaman çizelgesi.** Altı adım, yan yana kutular ve oklar yerine tek bir dikey zaman çizelgesinde duruyor: sol kenarda sürekli bir çizgi, her adımın hizasında bir nokta. Adımların sırası dar ekranda da bozulmuyor, ayrı bir mobil düzen gerekmiyor.
+- **Etiketli beceri haritası kartları.** Ülke kartları artık "Beceri Arzı" ve "Öğrenme İhtiyacı" başlıklarıyla iki satır gösteriyor; daha önce iki bilgi tek satırda nokta ile ayrılıyordu ve hangisinin arz hangisinin ihtiyaç olduğu belirsizdi. Etiketler ve beceri adları yedi dile çevrildi; beceri çevirileri mevcut beceri katalogundan alındığı için ikinci bir kaynak oluşmadı.
 
 ---
 
