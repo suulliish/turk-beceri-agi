@@ -24,7 +24,8 @@ turk-beceri-agi/
 │   │   ├── 02-i18n-data.js       # 7 dilin sözlükleri (yalnızca veri, window.TDA_I18N_DATA)
 │   │   ├── 03-app.js             # i18n motoru, beceri kataloğu, prototip işlevleri
 │   │   ├── 04-assistant.js       # Turan paneli: sohbet ve metin dedektörü
-│   │   └── 05-ui-motion.js       # aktif bölüm vurgusu, yukarı düğmesi, tablo kaydırma ipucu
+│   │   ├── 05-ui-motion.js       # aktif bölüm vurgusu, yukarı düğmesi, tablo kaydırma ipucu
+│   │   └── 06-rooms.js           # ülke topluluk odaları (prototip sohbet gösterimi)
 │   ├── flags/                    # 7 ülkenin yerel SVG bayrağı
 │   ├── favicon.svg / apple-touch-icon.png
 │   └── og-image.jpg              # paylaşım görseli (1200×630)
@@ -37,8 +38,8 @@ CSS ve JS dosyaları numara sırasıyla yüklenir; sıra değişirse basamak (ca
 
 - **7 dil**: Türkçe, Azərbaycanca, Oʻzbekcha, Қазақша, Türkmençe, Кыргызча, English. Arayüz, içerik, tarih biçimi ve sayfa başlığı dile göre değişir.
 - **Beceri Puanı**: 1 saat öğretim +1 puan, 30 dakika +0,5, günlük mikro dil görevi +0,2, yeni kayıtta 2,5 başlangıç puanı.
-- **Eşleşme**: öğretilen/öğrenilen beceri, ülke, dil, seviye ve uygunluk filtreleriyle skorlanmış öneri listesi.
-- **Topluluk**: sıfır puanlı öğrenci için yapılandırılmış destek talebi, öğrenci ID'si ile puan bağışı, ayda en çok 2 puan.
+- **Eşleşme**: serbest metin araması (beceri, dil, ülke, öğrenci adı) ve öğretilen/öğrenilen beceri, ülke, dil, seviye, uygunluk filtreleriyle skorlanmış öneri listesi.
+- **Topluluk**: yedi ülke için topluluk odası (hazır mesajlarla prototip sohbet), sıfır puanlı öğrenci için yapılandırılmış destek talebi, öğrenci ID'si ile puan bağışı, ayda en çok 2 puan.
 - **Makaleler**: ülke filtresiyle öğrenci yazıları; kayıtlı öğrenci kendi yazısını yayımlayabilir.
 - **Turan**: sohbet paneli ve dilsel örüntülere bakan metin ön değerlendirme aracı.
 - **Erişilebilirlik**: klavye odak tuzağı, içeriğe geç bağlantısı, görünür odak halkası, `prefers-reduced-motion` desteği.
