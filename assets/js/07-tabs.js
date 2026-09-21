@@ -46,6 +46,7 @@
 
   const app = document.createElement('main');
   app.id = 'tabApp';
+  app.setAttribute('tabindex', '-1');
 
   const panels = {};
   const buttons = TAB_IDS.map((id) => {
@@ -105,6 +106,10 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncBarHeight);
   document.body.dataset.tabShellReady = 'true';
   document.body.classList.add('tabs-on');
+
+  // "içeriğe geç" bağlantısı gizli sekmeye değil, görünen panel kabuğuna gitmeli
+  const skip = document.querySelector('.skip-link');
+  if (skip) skip.setAttribute('href', '#tabApp');
 
   // --- etiketler ---
   function setLabels() {
