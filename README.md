@@ -31,6 +31,7 @@ turk-beceri-agi/
 │   ├── flags/                    # 7 ülkenin yerel SVG bayrağı
 │   ├── favicon.svg / apple-touch-icon.png
 │   └── og-image.jpg              # paylaşım görseli (1200×630)
+├── bin/bump-version.py           # yayın öncesi sürüm etiketi
 └── README.md
 ```
 
@@ -64,5 +65,14 @@ python3 -m http.server 8000
 Sonra tarayıcıda <http://localhost:8000> adresini aç.
 
 ## Yayınlama
+
+Her yayından önce sürüm etiketini tazele:
+
+```bash
+python3 bin/bump-version.py
+```
+
+Betik, CSS ve JS dosyalarının içeriğinden bir özet üretip `index.html` içindeki bağlantılara `?v=<özet>` yazar. GitHub Pages dosyaları 10 dakika önbelleğe aldığı için, etiket değişmezse ziyaretçi güncellenen dosyayı değil eski kopyasını görür. İçerik değişmediyse etiket de değişmez, gereksiz indirme olmaz.
+
 
 `main` dalına yapılan her değişiklik GitHub Pages tarafından otomatik yayımlanır; yayın genellikle 30–60 saniye sürer.
